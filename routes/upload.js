@@ -23,7 +23,7 @@ router.post("/", authMiddleware, upload.single("profileImage"), async(req, res)=
             return res.status(400).json({meessage : "No file uploaded"});
         }
 
-        const imageUrl = `http://localhost:5000/uploads/${req.file.filename}`;
+        const imageUrl = `https://backend-build.onrender.com/uploads/${req.file.filename}`;
 
         res.status(200).json({imageUrl});
 
