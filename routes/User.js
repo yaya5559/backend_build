@@ -3,7 +3,7 @@ const User = require('../models/Users'); // Your User model
 const authMiddleware = require('../middleware/auth'); // Import auth middleware
 const router = express.Router();
 
-
+// be triggered when a client makes A GET request to this path
 router.get('/', authMiddleware, async(req, res) =>{
     try{
         console.log("Request User:", req.user); // Debugging
