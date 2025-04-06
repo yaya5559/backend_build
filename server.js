@@ -14,7 +14,7 @@ dotenv.config();
 
 const app = express();
 const corsOptions = {
-  origin: "https://front-end-build-lgvrr707w-yaya1441415s-projects.vercel.app", // Replace * with frontend URL for security
+  origin: "https://front-end-build-kwgekv1kl-yaya1441415s-projects.vercel.app", // Replace * with frontend URL for security
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "Content-Type,Authorization"
 };
