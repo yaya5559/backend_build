@@ -14,11 +14,11 @@ dotenv.config();
 
 const app = express();
 const corsOptions = {
-  origin: "https://front-end-build-yaya1441415s-projects.vercel.app/", // Replace * with frontend URL for security
+  origin: "https://front-end-build-lgvrr707w-yaya1441415s-projects.vercel.app", // Replace * with frontend URL for security
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "Content-Type,Authorization"
 };
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URL)
