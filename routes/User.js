@@ -42,4 +42,24 @@ router.put('/:id', authMiddleware, async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   });
+
+// Increment user score by 1 (or custom increment)
+router.put('/:id/increment-score', authMiddleware, async (req, res) => {
+  const { increment = 1 } = req.body;
+
+  try {
+      const user = await User.findById(req.params.id);
+      if (!user) return res.status(404).json({ message: 'User not found' });
+
+      user.score = (user.score || 0) + increment;
+      await user.save();
+
+      res.json({ success: true, score: user.score });
+  } catch (err) {
+      console.error("Error incrementing score:", err);
+      res.status(500).json({ error: 'Failed to increment score' });
+  }
+});
+
+
 module.exports = router;
