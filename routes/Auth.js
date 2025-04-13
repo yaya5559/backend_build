@@ -4,6 +4,10 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/Users'); // Import User model
 const router = express.Router();
 
+
+
+
+
 router.post('/register', async (req, res)=>{
     const {username, email, password} = req.body;
 
@@ -24,6 +28,7 @@ router.post('/register', async (req, res)=>{
         const user = new User({username, email, password:hashedPassword});
         await user.save();
         res.json({message: 'User registered successfully'});
+        
     }catch(err){
         res.status(400).json({error: 'Error registering user'});    
     }
