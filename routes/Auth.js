@@ -26,8 +26,16 @@ router.post('/register', async (req, res)=>{
         const salt = await bcrypt.genSalt(10);
         const hashedPassword =  await bcrypt.hash(password, salt);
         const user = new User({username, email, password:hashedPassword});
-        await user.save();
-        res.json({message: 'User registered successfully'});
+        const savedUser = await user.save();
+        res.json({
+            message: 'User registered successfully',
+            user: {
+                _id: savedUser._id,
+                username: savedUser.username,
+                email: savedUser.email
+            }
+        
+        });
         
     }catch(err){
         res.status(400).json({error: 'Error registering user'});    

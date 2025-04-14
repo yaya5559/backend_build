@@ -49,6 +49,7 @@ router.put('/:id/increment-score', authMiddleware, async (req, res) => {
 
   try {
       const user = await User.findById(req.params.id);
+      console.log(user);
       if (!user) return res.status(404).json({ message: 'User not found' });
 
       user.score = (user.score || 0) + increment;
