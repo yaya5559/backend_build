@@ -15,8 +15,8 @@ dotenv.config();
 const app = express();
 const corsOptions = {
   
-  origin: "https://front-end-build-7jkglm90f-yaya1441415s-projects.vercel.app", // Replace * with frontend URL for security
- //origin: 'http://localhost:5173',
+  origin: "https://front-end-build-7ghrq1q3b-yaya1441415s-projects.vercel.app", // Replace * with frontend URL for security
+  origin: 'http://localhost:5173',
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "Content-Type,Authorization"
 };
